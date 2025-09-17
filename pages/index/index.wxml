@@ -1,0 +1,4 @@
+<view class="container">
+  <text class="title">Hello WeChat Mini Program 🚀</text>
+  <button bindtap="handleClick">Click Me</button>
+</view>
