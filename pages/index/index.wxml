@@ -1,43 +1,46 @@
 
-<view class="container">
-  <text class="title">Pocket Recipe Book</text>
-  <text class="subtitle">Discover, save, and cook simple recipes anywhere!</text>
-  <input class="search" placeholder="Search recipes..." bindinput="onSearchInput" />
-  <view class="recipe-list">
-    <block wx:for="{{recipes}}" wx:key="index">
-      <view class="recipe-item" bindtap="onRecipeTap" data-index="{{index}}">
-        <image class="recipe-img" src="{{item.img}}" mode="aspectFill" />
-        <view class="recipe-info">
-          <text class="recipe-title">{{item.title}}</text>
-          <text class="recipe-desc">{{item.desc}}</text>
-        </view>
+<view class="container color-text">
+  <view class="title-container">
+    <view class="title-text">
+      <text class="title-greeting">Hello, user</text>
+      <text class="title-greeting2">What would you like to cook today?</text>
+    </view>
+    <image class='user-avatar' src="https://randomuser.me/api/portraits/women/43.jpg"/>
+  </view>
+  
+  <search-bar
+    placeholder="Search for a recipe"
+    bind:input="onSearchInput"
+    bind:confirm="onSearchConfirm"
+    bind:search="onSearchClick"
+  />
+</view>
+<view class="category-section">
+  <view class="category-list">
+    <block wx:for="{{categories}}" wx:key="index">
+      <view class="category-card {{index == 0 ? 'first-item' : ''}}">
+        <image class="category-icon" src="{{item.img}}"/>
+        <text class="category-text">{{item.name}}</text>
       </view>
     </block>
   </view>
-
-  <view wx:if="{{showModal}}" class="modal-mask" catchtap="onModalClose">
-    <view class="modal">
-      <image class="modal-img" src="{{selectedRecipe.img}}" mode="aspectFill" />
-      <text class="modal-title">{{selectedRecipe.title}}</text>
-      <text class="modal-desc">{{selectedRecipe.desc}}</text>
-      <view class="modal-section">
-        <text class="modal-section-title">Ingredients</text>
-        <view class="modal-list">
-          <block wx:for="{{selectedRecipe.ingredients}}" wx:key="index">
-            <text class="modal-list-item">• {{item}}</text>
-          </block>
-        </view>
-      </view>
-      <view class="modal-section">
-        <text class="modal-section-title">Steps to Cook</text>
-        <view class="modal-list">
-          <block wx:for="{{selectedRecipe.steps}}" wx:key="index">
-            <text class="modal-list-item">{{index + 1}}. {{item}}</text>
-          </block>
-        </view>
-      </view>
-      <button class="modal-close" bindtap="onModalClose">Close</button>
-    </view>
-  </view>
-
 </view>
+
+<view class="container">
+  <view class="recipe-list">
+    <block wx:for="{{recipes}}" wx:key="index">
+      <card
+        img="{{item.image_url}}"
+        title="{{item.name}}"
+        desc="By Jhon Woo"
+        bindtap="openModal" data-item="{{item}}"
+      />
+    </block>
+  </view>
+</view>
+
+
+
+<recipe-modal visible="{{showModal}}" recipe="{{selectedRecipe}}" bind:close="onModalClose" />
+
+<menu />

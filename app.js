@@ -1,6 +1,6 @@
 App({
   onLaunch() {
-    console.log('Mini Program launched');
+    console.log("app loaded")
   },
   globalData: {
     userInfo: null

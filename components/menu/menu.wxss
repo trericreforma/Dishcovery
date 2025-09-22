@@ -1,0 +1,53 @@
+:host{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+.floating-menu {
+  
+  height: 120rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 -4rpx 16rpx rgba(0,0,0,0.1);
+  z-index: 999;
+}
+
+.menu-item {
+  flex: 1;
+  text-align: center;
+  font-size: 20rpx;
+  color: #666;
+}
+
+.menu-icon {
+  width: 25px;
+  height: 25px;
+  margin-bottom: 6rpx;
+}
+
+.menu-label {
+  font-size: 20rpx;
+}
+
+.fab {
+  position: relative;
+  bottom: 57rpx;
+  width: 100rpx;
+  height: 100rpx;
+  background-color: #009688;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6rpx 16rpx rgba(0,0,0,0.2);
+  color: #fff;
+}
+
+.fab-icon {
+  font-size: 48rpx;
+  line-height: 1;
+}

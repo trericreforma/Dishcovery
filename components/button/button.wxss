@@ -1,0 +1,6 @@
+.custom-btn {
+  background-color: var(--color-primary);
+  color: white;
+  padding: 12rpx 24rpx;
+  border-radius: 8rpx;
+}

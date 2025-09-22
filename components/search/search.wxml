@@ -1,0 +1,17 @@
+<view class="search-container">
+  <input
+    class="search-input"
+    type="text"
+    placeholder="{{placeholder}}"
+    value="{{value}}"
+    bindinput="onInput"
+    confirm-type="search"
+    bindconfirm="onConfirm"
+  />
+  <button
+    class="search-btn"
+    bindtap="onSearchTap"
+  >
+    <image class="search-icon" src="../../assets/icons/search.png" mode="widthFix" />
+  </button>
+</view>

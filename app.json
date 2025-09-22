@@ -7,5 +7,12 @@
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
     "backgroundTextStyle": "light"
+  },
+  "usingComponents": {
+    "search-bar": "/components/search/search",
+    "card": "/components/card/card",
+    "menu": "/components/menu/menu",
+    "recipe-modal": "/components/modal/recipe-modal/recipe-modal",
+    "ingredient": "/components/ingredient/ingredient"
   }
 }

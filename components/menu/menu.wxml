@@ -1,0 +1,26 @@
+<view class="floating-menu">
+  <!-- Home -->
+  <view class="menu-item" bindtap="goHome">
+    <image src="../../assets/icons/home{{activePage === '/pages/index/index' ? '_active' : ''}}.png" class="menu-icon" />
+  </view>
+
+  <!-- Search -->
+  <view class="menu-item" bindtap="goSearch">
+    <image src="../../assets/icons/share.png" class="menu-icon" />
+  </view>
+
+  <!-- Center FAB (plus button) -->
+  <view class="fab" bindtap="onAdd">
+    <text class="fab-icon">＋</text>
+  </view>
+
+  <!-- Bookmark -->
+  <view class="menu-item" bindtap="goBookmark">
+    <image src="../../assets/icons/bookmark.png" class="menu-icon" />
+  </view>
+
+  <!-- Profile -->
+  <view class="menu-item" bindtap="goProfile">
+    <image src="../../assets/icons/profile.png" class="menu-icon" />
+  </view>
+</view>

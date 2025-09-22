@@ -1,0 +1,10 @@
+<view class="image-card {{customClass}}">
+  <!-- Image -->
+  <image class="card-image" src="{{img}}" mode="aspectFill"></image>
+
+  <!-- Content -->
+  <view class="card-content">
+    <text class="card-title">{{title}}</text>
+    <text class="card-desc">{{desc}}</text>
+  </view>
+</view>

@@ -1,0 +1,3 @@
+<button class="custom-btn" bindtap="handleTap">
+  <slot></slot>
+</button>

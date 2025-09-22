@@ -1,0 +1,40 @@
+.ingredient {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 9999rpx;
+  background-color: #fbfbfb;
+  box-sizing: border-box;
+  margin: 8px 0;
+}
+
+.ingredient-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ingredient-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.ingredient-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.ingredient-right {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ingredient-qty,
+.ingredient-unit {
+  font-size: 14px;
+  color: #666;
+}

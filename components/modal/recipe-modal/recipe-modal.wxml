@@ -1,0 +1,42 @@
+<view class="modal-mask {{visible ? 'show' : ''}}" >
+  <view class="modal-container {{visible ? 'slide-up' : 'slide-down'}}">
+    <image class="recipe-image" src="{{recipe.image_url}}" mode="aspectFill" />
+
+    <view class="recipe-content">
+      <view class="modal-curve"></view>
+      <text class="recipe-title">{{recipe.name}}</text>
+      <text class="recipe-author color-text-gray">By Jhon Woo</text>
+      <view class="recipe-sub-details">
+        <view class="detail-item">
+          <image class="detail-icon" src="../../../assets/icons/time.png" />
+          <text class="detail-text">10 mins</text>
+        </view>
+        <view class="detail-item">
+          <image class="detail-icon" src="../../../assets/icons/level.png" />
+          <text class="detail-text">Medium</text>
+        </view>
+        <view class="detail-item">
+          <image class="detail-icon" src="../../../assets/icons/calorie.png" />
+          <text class="detail-text">120 kcal</text>
+        </view>
+      </view>
+      <text class="recipe-desc-title">Description</text>
+      <text class="recipe-desc">{{recipe.description}}</text>
+      <text class="recipe-desc-title">Ingredients</text>
+      <block wx:for="{{recipe.ingredients}}" wx:key="index">
+        <ingredient 
+          name="{{item.name}}" 
+          quantity="{{item.quantity}}" 
+          unit="{{item.unit}}" 
+          icon="{{item.name}}" 
+        />
+      </block> 
+      <text class="recipe-desc-title">Cooking</text>
+      <block wx:for="{{recipe.instructions}}" wx:key="index">
+        <view class="steps">{{item.description}}</view>
+      </block> 
+    </view>
+
+    <button class="close-btn" bindtap="closeModal">✕</button>
+  </view>
+</view>

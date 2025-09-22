@@ -1,0 +1,10 @@
+<view class="ingredient">
+  <view class="ingredient-left">
+    <image class="ingredient-icon" src="{{iconPath}}"  mode="aspectFit"></image>
+    <text class="ingredient-name">{{name}}</text>
+  </view>
+  <view class="ingredient-right">
+    <text class="ingredient-qty">{{quantity}}</text>
+    <text class="ingredient-unit">{{unit}}</text>
+  </view>
+</view>
