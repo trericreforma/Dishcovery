@@ -20,7 +20,7 @@ Component({
       wx.navigateTo({ url: '/pages/search/search' })
     },
     onAdd() {
-      wx.navigateTo({ url: '/pages/add/add' })
+      wx.navigateTo({ url: '/pages/add-recipe/add-recipe' })
     },
     goBookmark() {
       wx.navigateTo({ url: '/pages/bookmark/bookmark' })

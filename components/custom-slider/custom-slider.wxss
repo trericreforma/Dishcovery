@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 25rpx 35rpx;
+  border-radius: 30rpx;
+  background-color: #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.slider-label {
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.slider-field {
+  width: 100%;
+  box-sizing: border-box;
+}

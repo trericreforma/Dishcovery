@@ -1,0 +1,36 @@
+<view class="container">
+  <text class="label">Dish Name</text>
+  <custom-input 
+    placeholder="What are you cooking?" 
+    bind:input="handleInput" 
+  />
+  <text class="label">Description</text>
+  <custom-textarea 
+    placeholder="Tell about your dish" 
+    bind:input="handleInput" 
+  />
+  <text class="label">Preparation Time</text>
+  <custom-slider
+    label="Minutes"
+    min="0"
+    max="100"
+    step="5"
+    value="50"
+    bind:change="handleSliderChange"
+  />
+  <text class="label">Calorie Cotent</text>
+  <custom-slider
+    label="kCal"
+    min="0"
+    max="500"
+    step="5"
+    value="50"
+    bind:change="handleSliderChange"
+  />
+  <text class="label">Difficulty</text>
+  <difficulty 
+    selected="medium"
+    bind:change="handleDifficultyChange" 
+  />
+  <text class="label">Ingredients</text>
+</view>

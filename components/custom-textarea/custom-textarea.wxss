@@ -1,0 +1,28 @@
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.textarea-container {
+  display: flex;
+  width: 100%;
+  padding: 25rpx 35rpx;
+  border-radius: 30rpx; /* slightly less than input since textareas are bigger */
+  background-color: #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.textarea-field {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 28rpx;
+  line-height: 1.6;
+  background-color: transparent;
+  width: 100%;
+  resize: none;
+  min-height: 300rpx;
+  box-sizing: border-box;
+}

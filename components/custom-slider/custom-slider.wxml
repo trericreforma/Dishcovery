@@ -1,0 +1,12 @@
+<view class="slider-container">
+  <view class="slider-label">{{label}}</view>
+  <slider 
+    class="slider-field"
+    min="{{min}}"
+    max="{{max}}"
+    step="{{step}}"
+    value="{{value}}"
+    show-value
+    bindchange="onChange"
+  />
+</view>

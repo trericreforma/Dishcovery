@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.selector-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: 20rpx 0;
+  box-sizing: border-box;
+}
+
+.pill {
+  flex: 1;
+  margin: 0 10rpx;
+  padding: 20rpx 0;
+  text-align: center;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.05);
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+
+.pill-active {
+  background-color: #009688;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 6rpx 16rpx rgba(0,0,0,0.1);
+  box-sizing: border-box;
+}

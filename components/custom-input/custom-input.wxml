@@ -1,0 +1,9 @@
+<view class="input-container">
+  <input 
+    class="input-field" 
+    type="text" 
+    placeholder="{{placeholder}}" 
+    value="{{value}}" 
+    bindinput="onInput"
+  />
+</view>

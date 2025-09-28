@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000"; 
+const BASE_URL = "https://238af4327065.ngrok-free.app"; 
 
 module.exports = {
   BASE_URL,

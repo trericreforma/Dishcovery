@@ -1,0 +1,10 @@
+<view class="textarea-container">
+  <textarea
+    class="textarea-field"
+    placeholder="{{placeholder}}"
+    value="{{value}}"
+    auto-height="{{autoHeight}}"
+    maxlength="{{maxlength}}"
+    bindinput="onInput"
+  />
+</view>

@@ -1,6 +1,7 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/add-recipe/add-recipe"
   ],
   "window": {
     "navigationBarTitleText": "Dishcovery",
@@ -13,6 +14,10 @@
     "card": "/components/card/card",
     "menu": "/components/menu/menu",
     "recipe-modal": "/components/modal/recipe-modal/recipe-modal",
-    "ingredient": "/components/ingredient/ingredient"
+    "ingredient": "/components/ingredient/ingredient",
+    "custom-input": "/components/custom-input/custom-input",
+    "custom-textarea": "/components/custom-textarea/custom-textarea",
+    "custom-slider": "/components/custom-slider/custom-slider",
+    "difficulty": "/components/difficulty/difficulty"
   }
 }
