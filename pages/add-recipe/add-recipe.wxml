@@ -1,4 +1,10 @@
+<view class="upload-container">
+    <image class="upload-image" src="../../assets/upload.png"/>
+    <text class="upload-text">Upload Photo</text>
+  </view>
 <view class="container">
+
+
   <text class="label">Dish Name</text>
   <custom-input 
     placeholder="What are you cooking?" 
@@ -104,6 +110,16 @@
     bind:close="closeIngredientModal" 
     bind:add="handleAddIngredient" 
   />
+
+
+<view class="save-container">
+  <custom-button 
+    label="SAVE" 
+    type="secondary" 
+    catchtap="addStep" 
+  />
+</view>
+  
 </view>
 
 <menu />
