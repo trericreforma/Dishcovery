@@ -4,11 +4,13 @@
     placeholder="What are you cooking?" 
     bind:input="handleInput" 
   />
+
   <text class="label">Description</text>
   <custom-textarea 
     placeholder="Tell about your dish" 
     bind:input="handleInput" 
   />
+
   <text class="label">Preparation Time</text>
   <custom-slider
     label="Minutes"
@@ -18,7 +20,8 @@
     value="50"
     bind:change="handleSliderChange"
   />
-  <text class="label">Calorie Cotent</text>
+
+  <text class="label">Calorie Content</text>
   <custom-slider
     label="kCal"
     min="0"
@@ -27,10 +30,52 @@
     value="50"
     bind:change="handleSliderChange"
   />
+
   <text class="label">Difficulty</text>
   <difficulty 
     selected="medium"
     bind:change="handleDifficultyChange" 
   />
+
   <text class="label">Ingredients</text>
+
+  <block wx:if="{{selectedIngredients.length > 0}}">
+    <view class="selected-ingredients">
+      <block wx:for="{{selectedIngredients}}" wx:key="index">
+        <view class="item-container">
+          <view class="selected-item">
+            <view class="info">
+              <ingredient-image name="{{item.name}}" />
+              <text class="item-name">{{item.name}} ({{item.unit}})</text>
+            </view>
+
+            <view class="quantity-controls">
+              <button class="qty-btn" bindtap="decreaseQty" data-index="{{index}}">-</button>
+              <text class="qty">{{item.quantity}}</text>
+              <button class="qty-btn" bindtap="increaseQty" data-index="{{index}}">+</button>
+            </view>
+          </view>
+          <view class="remove" bindtap="removeIngredient" data-index="{{index}}">
+            x
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+
+  <!-- Add ingredient button -->
+  <custom-button 
+    label="Add Ingredient" 
+    type="primary" 
+    bind:tap="openModal" 
+  />
+
+  <!-- Ingredient modal -->
+  <ingredients-modal 
+    show="{{showIngredientModal}}" 
+    bind:close="closeIngredientModal" 
+    bind:add="handleAddIngredient" 
+  />
 </view>
+
+<menu />

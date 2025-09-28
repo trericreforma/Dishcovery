@@ -1,66 +1,53 @@
-// pages/add-recipe/add-recipe.js
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
-
+    showIngredientModal: false,
+    selectedIngredients: []
   },
 
-  /**
-   * Lifecycle function--Called when page load
-   */
-  onLoad(options) {
-
+  openModal() {
+    this.setData({ showIngredientModal: true });
   },
 
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady() {
-
+  closeIngredientModal() {
+    this.setData({ showIngredientModal: false });
   },
 
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow() {
-
+  handleAddIngredient(e) {
+    const item = e.detail;
+    const newItem = { ...item, quantity: 1 }; // default quantity
+    this.setData({
+      selectedIngredients: [...this.data.selectedIngredients, newItem]
+    });
   },
 
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide() {
-
+  increaseQty(e) {
+    const index = e.currentTarget.dataset.index;
+    const updated = [...this.data.selectedIngredients];
+    updated[index].quantity += 1;
+    this.setData({ selectedIngredients: updated });
   },
 
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload() {
-
+  decreaseQty(e) {
+    const index = e.currentTarget.dataset.index;
+    const updated = [...this.data.selectedIngredients];
+    if (updated[index].quantity > 1) {
+      updated[index].quantity -= 1;
+      this.setData({ selectedIngredients: updated });
+    }
   },
 
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh() {
-
+  removeIngredient(e) {
+    const index = e.currentTarget.dataset.index;
+    const updated = [...this.data.selectedIngredients];
+    updated.splice(index, 1);
+    this.setData({ selectedIngredients: updated });
   },
 
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom() {
-
+  getIngredientIcon(name) {
+    if (!name) {
+      return '../../assets/ingredients/default.png';
+    }
+    const safeName = name.toLowerCase().replace(/\s+/g, '_');
+    return `../../assets/ingredients/${safeName}.png`;
   },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage() {
-
-  }
-})
+});

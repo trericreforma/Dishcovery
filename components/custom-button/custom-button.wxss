@@ -1,0 +1,59 @@
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-wrap.block {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.pill-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 22rpx 30rpx;
+  border-radius: 50rpx;
+  background-color: #fff;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.05);
+  transition: transform 120ms ease, box-shadow 120ms ease;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.btn-label {
+  font-size: 30rpx;
+  line-height: 1;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.pill-primary {
+  background-color: #009688;
+  color: #fff;
+}
+.pill-primary .btn-label {
+  color: #fff;
+  font-weight: 600;
+}
+
+.pill-secondary {
+  background-color: #fff;
+  border: 1rpx solid rgba(0,0,0,0.06);
+}
+.pill-secondary .btn-label {
+  color: #333;
+}
+
+.pill-btn:active {
+  transform: translateY(1rpx);
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.06);
+}
+
+.pill-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  box-shadow: none;
+}

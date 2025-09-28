@@ -1,4 +1,4 @@
-const BASE_URL = "https://238af4327065.ngrok-free.app"; 
+const BASE_URL = "https://a27e8fa9e0cc.ngrok-free.app"; 
 
 module.exports = {
   BASE_URL,

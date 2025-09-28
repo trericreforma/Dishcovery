@@ -7,3 +7,81 @@
   margin-bottom: 10px;
   margin-top: 25px;
 }
+.selected-ingredients {
+  width: 100%;
+  box-sizing: border-box;
+}
+.item-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.selected-item {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+  border: 1px solid #ddd;
+  border-radius: 50rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.remove {
+  width: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: 70rpx;
+  font-weight: bold;
+}
+
+
+.info {
+  display: flex;
+  align-items: center;
+  flex: 2;
+  font-size: 15px;
+  font-weight: bold;
+}
+.item-name{
+  margin-left: 10px;
+
+}
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10rpx;
+  flex: 1;
+  justify-content: center;
+}
+
+.qty-btn {
+  padding: 0 12rpx;
+  background-color: #f0f0f0;
+  border-radius: 4rpx;
+}
+
+.qty {
+  min-width: 40rpx;
+  text-align: center;
+}
+
+.remove {
+  flex: 0;
+  color: red;
+  font-size: 32rpx;
+  padding-left: 20rpx;
+}
+
+
+.ingredient-icon {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 12rpx;
+}

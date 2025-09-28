@@ -18,6 +18,9 @@
     "custom-input": "/components/custom-input/custom-input",
     "custom-textarea": "/components/custom-textarea/custom-textarea",
     "custom-slider": "/components/custom-slider/custom-slider",
-    "difficulty": "/components/difficulty/difficulty"
+    "difficulty": "/components/difficulty/difficulty",
+    "custom-button": "/components/custom-button/custom-button",
+    "ingredients-modal": "/components/ingredients-modal/ingredients-modal",
+    "ingredient-image": "/components/ingredient-image/ingredient-image"
   }
 }

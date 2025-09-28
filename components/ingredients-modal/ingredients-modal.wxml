@@ -1,0 +1,30 @@
+<view wx:if="{{show}}" class="overlay" bindtap="closeModal">
+  <view class="modal" catchtap="stopTap">
+    <view class="container">
+      <text class="label">Ingredients</text>
+
+      <custom-input 
+        placeholder="Search for Ingredient"
+        bindinput="handleInput"
+      />
+
+      <scroll-view scroll-y="true" class="list">
+        <block wx:if="{{filteredIngredients.length > 0}}">
+          <block wx:for="{{filteredIngredients}}" wx:key="index">
+            <view class="item">
+            <view>
+              <ingredient-image name="{{item.name}}" />
+              <text class="name">{{item.name}}</text>
+            </view>
+              <button class="add-btn" bindtap="addIngredient" data-item="{{item}}">Add</button>
+            </view>
+          </block>
+        </block>
+
+        <view wx:elif="{{query && filteredIngredients.length === 0}}" class="no-results">
+          <text>No results found</text>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>

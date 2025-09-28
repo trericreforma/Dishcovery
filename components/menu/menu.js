@@ -14,7 +14,7 @@ Component({
   },
   methods: {
     goHome() {
-      wx.switchTab({ url: '/pages/index/index' })
+      wx.navigateTo({ url: '/pages/index/index' })
     },
     goSearch() {
       wx.navigateTo({ url: '/pages/search/search' })

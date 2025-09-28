@@ -1,0 +1,6 @@
+<image
+  class="ingredient-icon"
+  src="{{iconPath}}"
+  mode="aspectFit"
+  binderror="onError"
+/>
