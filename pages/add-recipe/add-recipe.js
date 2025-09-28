@@ -1,7 +1,8 @@
 Page({
   data: {
     showIngredientModal: false,
-    selectedIngredients: []
+    selectedIngredients: [],
+    steps: []
   },
 
   openModal() {
@@ -50,4 +51,36 @@ Page({
     const safeName = name.toLowerCase().replace(/\s+/g, '_');
     return `../../assets/ingredients/${safeName}.png`;
   },
+
+  addStep() {
+    this.setData({
+      steps: [...this.data.steps, { text: '' }]  // ✅ not null
+    });
+  },
+  
+
+  handleStepInput(e) {
+    const index = e.currentTarget.dataset.index;
+    const value = e.detail.value;
+    const steps = [...this.data.steps];
+    steps[index] = value;
+    this.setData({ steps });
+  },
+
+  updateStep(e) {
+    const index = e.currentTarget.dataset.index;
+    const value = e.detail.value || '';
+    const steps = this.data.steps;
+    steps[index].text = value;
+    this.setData({ steps });
+  },
+
+  removeStep(e) {
+    const index = e.currentTarget.dataset.index;
+    const steps = this.data.steps.filter((_, i) => i !== index);
+    this.setData({ steps });
+  }
+  
+  
+  
 });

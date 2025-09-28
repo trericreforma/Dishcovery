@@ -85,3 +85,25 @@
   height: 40rpx;
   margin-right: 12rpx;
 }
+
+.step-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 12rpx;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.step-textarea {
+  flex: 1;
+}
+
+.remove-btn {
+  margin-left: 12rpx;
+  padding: 0 16rpx;
+  color: #fff;
+  background-color: #ff4d4f;
+  border-radius: 8rpx;
+  line-height: 1.6;
+}
+

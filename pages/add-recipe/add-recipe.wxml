@@ -55,22 +55,50 @@
               <button class="qty-btn" bindtap="increaseQty" data-index="{{index}}">+</button>
             </view>
           </view>
-          <view class="remove" bindtap="removeIngredient" data-index="{{index}}">
-            x
-          </view>
+          <button
+            class="remove-btn"
+            data-index="{{index}}"
+            bindtap="removeIngredient"
+          >✕</button>
         </view>
       </block>
     </view>
   </block>
 
-  <!-- Add ingredient button -->
   <custom-button 
     label="Add Ingredient" 
     type="primary" 
     bind:tap="openModal" 
   />
 
-  <!-- Ingredient modal -->
+  <text class="label">Procedure</text>
+
+  <block wx:for="{{steps}}" wx:key="index">
+    <view class="step-row">
+      <custom-textarea
+        class="step-textarea"
+        placeholder="Write step {{index + 1}}"
+        value="{{item.text}}"
+        bind:input="updateStep"
+        data-index="{{index}}"
+      />
+      <button
+        class="remove-btn"
+        data-index="{{index}}"
+        bindtap="removeStep"
+      >✕</button>
+    </view>
+  </block>
+
+
+
+  <custom-button 
+    label="Add a step" 
+    type="primary" 
+    catchtap="addStep" 
+  />
+
+
   <ingredients-modal 
     show="{{showIngredientModal}}" 
     bind:close="closeIngredientModal" 

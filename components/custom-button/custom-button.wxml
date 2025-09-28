@@ -1,7 +1,7 @@
 <view class="btn-wrap {{block ? 'block' : ''}}">
   <view 
     class="pill-btn {{type === 'primary' ? 'pill-primary' : 'pill-secondary'}} {{disabled ? 'pill-disabled' : ''}}"
-    bindtap="onTap"
+    catchtap="onTap"
     data-disabled="{{disabled}}"
   >
     <text class="btn-label">{{label}}</text>

@@ -19,7 +19,8 @@ Component({
   },
   methods: {
     onInput(e) {
-      this.triggerEvent('input', e.detail.value);
+      const val = e.detail.value || '';
+      this.triggerEvent('input', { value: val });
     }
   }
 });
