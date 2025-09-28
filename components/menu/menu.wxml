@@ -5,8 +5,8 @@
   </view>
 
   <!-- Search -->
-  <view class="menu-item" bindtap="goSearch">
-    <image src="../../assets/icons/share.png" class="menu-icon" />
+  <view class="menu-item" bindtap="goSharedRecipes">
+    <image src="../../assets/icons/share{{activePage === '/pages/sharedRecipes/sharedRecipes' ? '_active' : ''}}.png" class="menu-icon" />
   </view>
 
   <!-- Center FAB (plus button) -->

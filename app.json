@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/add-recipe/add-recipe"
+    "pages/add-recipe/add-recipe",
+    "pages/sharedRecipes/sharedRecipes"
   ],
   "window": {
     "navigationBarTitleText": "Dishcovery",

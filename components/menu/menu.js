@@ -16,8 +16,8 @@ Component({
     goHome() {
       wx.navigateTo({ url: '/pages/index/index' })
     },
-    goSearch() {
-      wx.navigateTo({ url: '/pages/search/search' })
+    goSharedRecipes() {
+      wx.navigateTo({ url: '/pages/sharedRecipes/sharedRecipes' })
     },
     onAdd() {
       wx.navigateTo({ url: '/pages/add-recipe/add-recipe' })
