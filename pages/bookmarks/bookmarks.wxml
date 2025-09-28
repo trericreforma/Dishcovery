@@ -1,0 +1,18 @@
+<view class="container">
+<text class="label">Bookmark</text>
+
+<view class="recipe-list">
+  <block wx:for="{{recipes}}" wx:key="index">
+    <card
+      img="{{item.image_url}}"
+      title="{{item.name}}"
+      desc="By Jhon Woo"
+      bindtap="openModal" data-item="{{item}}"
+    />
+  </block>
+</view>
+
+<recipe-modal visible="{{showModal}}" recipe="{{selectedRecipe}}" bind:close="onModalClose" />
+<menu />
+
+</view>

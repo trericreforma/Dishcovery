@@ -16,7 +16,7 @@
 
   <!-- Bookmark -->
   <view class="menu-item" bindtap="goBookmark">
-    <image src="../../assets/icons/bookmark.png" class="menu-icon" />
+    <image src="../../assets/icons/bookmark{{activePage === '/pages/bookmarks/bookmarks' ? '_active' : ''}}.png" class="menu-icon" />
   </view>
 
   <!-- Profile -->

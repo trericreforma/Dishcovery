@@ -23,7 +23,7 @@ Component({
       wx.navigateTo({ url: '/pages/add-recipe/add-recipe' })
     },
     goBookmark() {
-      wx.navigateTo({ url: '/pages/bookmark/bookmark' })
+      wx.navigateTo({ url: '/pages/bookmarks/bookmarks' })
     },
     goProfile() {
       wx.navigateTo({ url: '/pages/profile/profile' })
