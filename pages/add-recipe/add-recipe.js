@@ -2,7 +2,9 @@ Page({
   data: {
     showIngredientModal: false,
     selectedIngredients: [],
-    steps: []
+    steps: [],
+    selectedCategory: '',
+    selectedCuisine: ''
   },
 
   openModal() {
@@ -79,8 +81,21 @@ Page({
     const index = e.currentTarget.dataset.index;
     const steps = this.data.steps.filter((_, i) => i !== index);
     this.setData({ steps });
+  },
+
+  handleCategoryChange(e) {
+    const categoryIndex = e.detail.value;
+    const categories = ['Chicken','Seafood','Beef','Pork','Vegetable','Other'];
+    this.setData({
+      selectedCategory: categories[categoryIndex]
+    });
+  },
+
+  handleCuisineChange(e) {
+    const cuisineIndex = e.detail.value;
+    const cuisines = ['Filipino','Australian','French','American','Japanese','Asian','Other'];
+    this.setData({
+      selectedCuisine: cuisines[cuisineIndex]
+    });
   }
-  
-  
-  
 });

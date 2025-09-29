@@ -8,17 +8,20 @@
     <image class='user-avatar' src="https://randomuser.me/api/portraits/women/43.jpg"/>
   </view>
   
-  <search-bar
-    placeholder="Search for a recipe"
-    bind:input="onSearchInput"
-    bind:confirm="onSearchConfirm"
-    bind:search="onSearchClick"
-  />
+  <view class="search-box">
+    <input
+      class="search-input"
+      placeholder="Search for a recipe"
+      bindinput="onSearchInput"
+      value="{{search}}"
+    />
+    <image class="search-icon" src="https://cdn-icons-png.flaticon.com/512/622/622669.png" />
+  </view>
 </view>
 <view class="category-section">
   <view class="category-list">
     <block wx:for="{{categories}}" wx:key="index">
-      <view class="category-card {{index == 0 ? 'first-item' : ''}}">
+      <view class="category-card {{index == 0 ? 'first-item' : ''}}" bindtap="onCategorySelect" data-category="{{item.name}}">
         <image class="category-icon" src="{{item.img}}"/>
         <text class="category-text">{{item.name}}</text>
       </view>
@@ -26,6 +29,9 @@
   </view>
 </view>
 
+<view wx:if="{{loading}}" class="loading-spinner">
+  <image src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f310.svg" class="spinner-img" />
+</view>
 <view class="container">
   <view class="recipe-list">
     <block wx:for="{{recipes}}" wx:key="index">
