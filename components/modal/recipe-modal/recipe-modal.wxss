@@ -88,28 +88,11 @@
   border-radius: 150rpx 150rpx 0 0;
 }
 
-.recipe-sub-details {
-  display: flex;
-  padding: 20rpx 0rpx;
-  gap: 30rpx;
+.recipe-details-spacer {
+  height: 16rpx;
 }
 
-.detail-item {
-  display: flex;
-  align-items: center;
-  gap: 5rpx;
-}
-
-.detail-icon {
-  width: 30rpx;
-  height: 30rpx;
-}
-
-.detail-text {
-  font-size: 26rpx;
-  color: #8d8c8c;
-}
-
+/* Removed recipe sub-details styles */
 
 .close-btn {
   position: absolute;

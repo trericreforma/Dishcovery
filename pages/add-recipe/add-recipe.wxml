@@ -1,21 +1,17 @@
-<view class="upload-container">
-    <image class="upload-image" src="../../assets/upload.png"/>
-    <text class="upload-text">Upload Photo</text>
-  </view>
 <view class="container">
 
 
   <text class="label">Dish Name</text>
   <custom-input 
     placeholder="What are you cooking?" 
-    bind:input="handleInput" 
+    bind:input="handleNameInput" 
   />
 
 
   <text class="label">Description</text>
   <custom-textarea 
     placeholder="Tell about your dish" 
-    bind:input="handleInput" 
+    bind:input="handleDescriptionInput" 
   />
 
 
@@ -85,7 +81,13 @@
 
             <view class="quantity-controls">
               <button class="qty-btn" bindtap="decreaseQty" data-index="{{index}}">-</button>
-              <text class="qty">{{item.quantity}}</text>
+              <input 
+                class="qty-input"
+                type="number"
+                value="{{item.quantity}}"
+                bindinput="handleQuantityInput"
+                data-index="{{index}}"
+              />
               <button class="qty-btn" bindtap="increaseQty" data-index="{{index}}">+</button>
             </view>
           </view>
@@ -132,6 +134,12 @@
     catchtap="addStep" 
   />
 
+  <text class="label">Photo</text>
+  <!--<view class="upload-container" bindtap="handleChooseImage">-->
+  <view class="upload-container">
+    <image class="upload-image" src="{{tempImageUrl || '../../assets/upload.png'}}" mode="{{tempImageUrl ? 'aspectFill' : 'aspectFit'}}"/>
+    <text class="upload-text" wx:if="{{!tempImageUrl}}">Upload Photo</text>
+  </view>
 
   <ingredients-modal 
     show="{{showIngredientModal}}" 
@@ -142,9 +150,9 @@
 
 <view class="save-container">
   <custom-button 
-    label="SAVE" 
-    type="secondary" 
-    catchtap="addStep" 
+    label="SAVE RECIPE" 
+    type="primary" 
+    bind:tap="handleSubmitRecipe" 
   />
 </view>
   

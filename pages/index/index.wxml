@@ -29,10 +29,16 @@
   </view>
 </view>
 
+<view wx:if="{{!loading && (!recipes || recipes.length === 0)}}" class="no-results">
+  <text class="no-results-title">No recipes found</text>
+  <text class="no-results-text">Try adjusting your search or browse our categories to find something delicious!</text>
+</view>
+
 <view wx:if="{{loading}}" class="loading-spinner">
   <image src="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/svg/1f310.svg" class="spinner-img" />
 </view>
-<view class="container">
+
+<view class="container" wx:if="{{recipes && recipes.length > 0}}">
   <view class="recipe-list">
     <block wx:for="{{recipes}}" wx:key="index">
       <card

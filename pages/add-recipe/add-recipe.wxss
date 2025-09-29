@@ -22,6 +22,12 @@
   border-color: #aaa;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
+.optional-text {
+  font-size: 14px;
+  color: #999;
+  font-weight: normal;
+}
 /* Make Category and Cuisine dropdowns look like a textbox */
 .picker-box, .picker-select {
   width: 100%;
@@ -141,10 +147,15 @@
   border-radius: 4rpx;
 }
 
-.qty {
-  padding-left: 20px;
-  padding-right: 20px;
+.qty-input {
+  margin: 0 16rpx;
+  min-width: 80rpx;
   text-align: center;
+  background: transparent;
+  border: 1px solid #ddd;
+  border-radius: 8rpx;
+  padding: 4rpx 8rpx;
+  font-size: 28rpx;
 }
 
 .remove {
@@ -182,20 +193,34 @@
   line-height: 1.6;
 }
 
-.upload-container{
-  background-color: #eee;
-  box-sizing: border-box;
+.upload-container {
   width: 100%;
-  height: 500rpx;
+  height: 150px;
+  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 2px dashed #ccc;
+  cursor: pointer;
+}
+
+.upload-container .upload-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.upload-container:active {
+  opacity: 0.8;
 }
 
 .upload-image {
-  width: 300rpx;
-  height: 250rpx;
+  width: 80px;
+  height: 80px;
+  margin-bottom: 8px;
 }
 
 .upload-text{

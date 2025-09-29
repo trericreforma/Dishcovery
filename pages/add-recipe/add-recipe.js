@@ -1,10 +1,16 @@
 Page({
   data: {
     showIngredientModal: false,
+    name: '',
+    description: '',
     selectedIngredients: [],
     steps: [],
     selectedCategory: '',
-    selectedCuisine: ''
+    selectedCuisine: '',
+    tags: '',
+    imageUrl: '',
+    youtubeUrl: '',
+    tempImageUrl: ''
   },
 
   openModal() {
@@ -46,6 +52,20 @@ Page({
     this.setData({ selectedIngredients: updated });
   },
 
+  handleQuantityInput(e) {
+    const index = e.currentTarget.dataset.index;
+    const value = parseInt(e.detail.value, 10);
+    
+    // Validate the input
+    if (isNaN(value) || value < 1) {
+      return;
+    }
+
+    const updated = [...this.data.selectedIngredients];
+    updated[index].quantity = value;
+    this.setData({ selectedIngredients: updated });
+  },
+
   getIngredientIcon(name) {
     if (!name) {
       return '../../assets/ingredients/default.png';
@@ -81,6 +101,147 @@ Page({
     const index = e.currentTarget.dataset.index;
     const steps = this.data.steps.filter((_, i) => i !== index);
     this.setData({ steps });
+  },
+
+  handleNameInput(e) {
+    this.setData({
+      name: e.detail.value
+    });
+  },
+
+  handleDescriptionInput(e) {
+    this.setData({
+      description: e.detail.value
+    });
+  },
+
+  handleTagsInput(e) {
+    this.setData({
+      tags: e.detail.value
+    });
+  },
+
+  handleChooseImage() {
+    wx.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      sourceType: ['album', 'camera'],
+      success: (res) => {
+        const tempFilePath = res.tempFiles[0].tempFilePath;
+        
+        wx.showLoading({
+          title: 'Uploading image...'
+        });
+
+        // First, upload to your server
+        wx.uploadFile({
+          url: 'http://localhost:3000/upload',
+          filePath: tempFilePath,
+          name: 'image',
+          success: (uploadRes) => {
+            const data = JSON.parse(uploadRes.data);
+            if (uploadRes.statusCode === 200) {
+              this.setData({
+                tempImageUrl: tempFilePath,
+                imageUrl: data.url // Store the URL returned from server
+              });
+              wx.showToast({
+                title: 'Image uploaded successfully',
+                icon: 'success'
+              });
+            } else {
+              wx.showToast({
+                title: 'Failed to upload image',
+                icon: 'error'
+              });
+            }
+          },
+          fail: (error) => {
+            console.error('Upload failed:', error);
+            wx.showToast({
+              title: 'Failed to upload image',
+              icon: 'error'
+            });
+          },
+          complete: () => {
+            wx.hideLoading();
+          }
+        });
+      }
+    });
+  },
+
+  handleSubmitRecipe() {
+    // Validate required fields
+    if (!this.data.name || !this.data.description || !this.data.selectedCategory || !this.data.selectedCuisine) {
+      wx.showToast({
+        title: 'Please fill in all required fields',
+        icon: 'none'
+      });
+      return;
+    }
+
+    const recipe = {
+      name: this.data.name,
+      description: this.data.description,
+      category: this.data.selectedCategory,
+      cuisine: this.data.selectedCuisine,
+      tags: this.data.tags,
+      ingredients: this.data.selectedIngredients.map(ing => ({
+        name: ing.name,
+        quantity: ing.quantity.toString(),
+        unit: ing.unit
+      })),
+      instructions: this.data.steps.map((step, index) => ({
+        step: (index + 1).toString(),
+        description: step.text || step // Handle both text property and direct string
+      })),
+      image_url: this.data.imageUrl || '',
+      youtube_url: this.data.youtubeUrl || ''
+    };
+
+    wx.showLoading({
+      title: 'Saving recipe...'
+    });
+
+    wx.request({
+      url: 'http://localhost:3000/recipes',
+      method: 'POST',
+      data: recipe,
+      header: {
+        'content-type': 'application/json'
+      },
+      success: (res) => {
+        wx.hideLoading();
+        if (res.statusCode === 201 || res.statusCode === 200) {
+          wx.showToast({
+            title: 'Recipe created successfully!',
+            icon: 'success',
+            duration: 2000,
+            complete: () => {
+              setTimeout(() => {
+                wx.navigateBack();
+              }, 2000);
+            }
+          });
+        } else {
+          wx.showToast({
+            title: 'Failed to create recipe: ' + (res.data?.message || 'Unknown error'),
+            icon: 'none',
+            duration: 3000
+          });
+        }
+      },
+      fail: (error) => {
+        wx.hideLoading();
+        console.error('Error creating recipe:', error);
+        wx.showToast({
+          title: 'Network error. Please try again.',
+          icon: 'none',
+          duration: 3000
+        });
+      }
+    });
   },
 
   handleCategoryChange(e) {
