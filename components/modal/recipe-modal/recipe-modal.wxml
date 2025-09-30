@@ -6,20 +6,9 @@
       <view class="modal-curve"></view>
       <text class="recipe-title">{{recipe.name}}</text>
       <text class="recipe-author color-text-gray">By Jhon Woo</text>
-      <view class="recipe-sub-details">
-        <view class="detail-item">
-          <image class="detail-icon" src="../../../assets/icons/time.png" />
-          <text class="detail-text">10 mins</text>
-        </view>
-        <view class="detail-item">
-          <image class="detail-icon" src="../../../assets/icons/level.png" />
-          <text class="detail-text">Medium</text>
-        </view>
-        <view class="detail-item">
-          <image class="detail-icon" src="../../../assets/icons/calorie.png" />
-          <text class="detail-text">120 kcal</text>
-        </view>
-      </view>
+      <!-- Recipe details section removed -->
+      <view class="recipe-details-spacer"></view>
+      <view class="recipe-details-spacer"></view>
       <text class="recipe-desc-title">Description</text>
       <text class="recipe-desc">{{recipe.description}}</text>
       <text class="recipe-desc-title">Ingredients</text>

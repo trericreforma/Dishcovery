@@ -1,3 +1,91 @@
+.loading-spinner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  background: rgba(255,255,255,0.3);
+}
+.spinner-img {
+  width: 60rpx;
+  height: 60rpx;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.recipe-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.no-results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32rpx;
+  text-align: center;
+  margin-top: 16rpx;
+}
+
+.no-results-image {
+  width: 240rpx;
+  height: 240rpx;
+  margin-bottom: 32rpx;
+  opacity: 0.9;
+}
+
+.no-results-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.no-results-text {
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.5;
+  max-width: 80%;
+}
+.card {
+  width: 100%;
+  box-sizing: border-box;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 30rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.05);
+  padding: 0 24rpx;
+  margin: 12rpx 0;
+  height: 64rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 28rpx;
+  background: transparent;
+  height: 100%;
+}
+.search-icon {
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 16rpx;
+}
 .title {
   font-size: 32rpx;
   margin-bottom: 30rpx;

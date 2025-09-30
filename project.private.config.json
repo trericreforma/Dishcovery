@@ -2,7 +2,7 @@
   "projectname": "Dishcovery",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": true,
+    "urlCheck": false,
     "coverView": true,
     "lazyloadPlaceholderEnable": false,
     "skylineRenderEnable": false,
@@ -17,6 +17,6 @@
     "ignoreDevUnusedFiles": true,
     "bigPackageSizeSupport": false
   },
-  "libVersion": "3.10.1",
+  "libVersion": "2.25.3",
   "condition": {}
 }

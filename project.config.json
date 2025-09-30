@@ -1,5 +1,5 @@
 {
-  "appid": "wxa7bbae37c6b5e8b2",
+  "appid": "touristappid",
   "compileType": "miniprogram",
   "libVersion": "2.25.3",
   "packOptions": {
@@ -7,6 +7,7 @@
     "include": []
   },
   "setting": {
+    "urlCheck": false,
     "coverView": true,
     "es6": true,
     "postcss": true,

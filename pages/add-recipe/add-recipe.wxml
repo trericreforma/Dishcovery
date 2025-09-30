@@ -1,22 +1,35 @@
-<view class="upload-container">
-    <image class="upload-image" src="../../assets/upload.png"/>
-    <text class="upload-text">Upload Photo</text>
-  </view>
 <view class="container">
 
 
   <text class="label">Dish Name</text>
   <custom-input 
     placeholder="What are you cooking?" 
-    bind:input="handleInput" 
+    bind:input="handleNameInput" 
   />
+
 
   <text class="label">Description</text>
   <custom-textarea 
     placeholder="Tell about your dish" 
-    bind:input="handleInput" 
+    bind:input="handleDescriptionInput" 
   />
 
+
+  <text class="label">Category</text>
+  <picker mode="selector" range="{{['Chicken','Seafood','Beef','Pork','Vegetable','Other']}}" bindchange="handleCategoryChange">
+    <view class="input-container">
+      <text class="picker-text {{selectedCategory ? 'selected' : ''}}">{{selectedCategory || 'Select a category'}}</text>
+    </view>
+  </picker>
+
+  <text class="label">Cuisine</text>
+  <picker mode="selector" range="{{['Filipino','Australian','French','American','Japanese','Asian','Other']}}" bindchange="handleCuisineChange">
+    <view class="input-container">
+      <text class="picker-text {{selectedCuisine ? 'selected' : ''}}">{{selectedCuisine || 'Select a cuisine'}}</text>
+    </view>
+  </picker>
+
+  <!-- Preparation Time hidden
   <text class="label">Preparation Time</text>
   <custom-slider
     label="Minutes"
@@ -26,7 +39,9 @@
     value="50"
     bind:change="handleSliderChange"
   />
+  -->
 
+  <!-- Calorie Content hidden
   <text class="label">Calorie Content</text>
   <custom-slider
     label="kCal"
@@ -36,11 +51,20 @@
     value="50"
     bind:change="handleSliderChange"
   />
+  -->
 
+  <!-- Difficulty hidden
   <text class="label">Difficulty</text>
   <difficulty 
     selected="medium"
     bind:change="handleDifficultyChange" 
+  />
+  -->
+
+  <text class="label">Tags</text>
+  <custom-input 
+    placeholder="e.g. vegan, spicy, quick" 
+    bind:input="handleTagsInput" 
   />
 
   <text class="label">Ingredients</text>
@@ -57,7 +81,13 @@
 
             <view class="quantity-controls">
               <button class="qty-btn" bindtap="decreaseQty" data-index="{{index}}">-</button>
-              <text class="qty">{{item.quantity}}</text>
+              <input 
+                class="qty-input"
+                type="number"
+                value="{{item.quantity}}"
+                bindinput="handleQuantityInput"
+                data-index="{{index}}"
+              />
               <button class="qty-btn" bindtap="increaseQty" data-index="{{index}}">+</button>
             </view>
           </view>
@@ -104,6 +134,12 @@
     catchtap="addStep" 
   />
 
+  <text class="label">Photo</text>
+  <!--<view class="upload-container" bindtap="handleChooseImage">-->
+  <view class="upload-container">
+    <image class="upload-image" src="{{tempImageUrl || '../../assets/upload.png'}}" mode="{{tempImageUrl ? 'aspectFill' : 'aspectFit'}}"/>
+    <text class="upload-text" wx:if="{{!tempImageUrl}}">Upload Photo</text>
+  </view>
 
   <ingredients-modal 
     show="{{showIngredientModal}}" 
@@ -114,9 +150,9 @@
 
 <view class="save-container">
   <custom-button 
-    label="SAVE" 
-    type="secondary" 
-    catchtap="addStep" 
+    label="SAVE RECIPE" 
+    type="primary" 
+    bind:tap="handleSubmitRecipe" 
   />
 </view>
   
