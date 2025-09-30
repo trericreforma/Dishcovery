@@ -1,6 +1,6 @@
 <view class="modal-mask {{visible ? 'show' : ''}}" >
   <view class="modal-container {{visible ? 'slide-up' : 'slide-down'}}">
-    <image class="recipe-image" src="{{recipe.image_url}}" mode="aspectFill" />
+    <image class="recipe-image" src="{{recipe.image_url || '../../../assets/no-image.png'}}" mode="aspectFill" />
 
     <view class="recipe-content">
       <view class="modal-curve"></view>

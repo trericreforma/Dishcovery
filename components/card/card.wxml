@@ -1,6 +1,6 @@
 <view class="image-card {{customClass}}">
   <!-- Image -->
-  <image class="card-image" src="{{img}}" mode="aspectFill"></image>
+  <image class="card-image" src="{{img || '../../assets/no-image.png'}}" mode="aspectFill"></image>
 
   <!-- Content -->
   <view class="card-content">
