@@ -1,3 +1,10 @@
+/* Wider dropdown for category and cuisine */
+.wide-picker,
+.wide-picker .input-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto 18px auto;
+}
 /* Style for selected dropdown value */
 .picker-selected {
   color: #1976d2;

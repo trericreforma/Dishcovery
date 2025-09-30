@@ -16,14 +16,14 @@
 
 
   <text class="label">Category</text>
-  <picker mode="selector" range="{{['Chicken','Seafood','Beef','Pork','Vegetable','Other']}}" bindchange="handleCategoryChange">
+  <picker class="wide-picker" mode="selector" range="{{['Chicken','Seafood','Beef','Pork','Vegetable','Other']}}" bindchange="handleCategoryChange">
     <view class="input-container">
       <text class="picker-text {{selectedCategory ? 'selected' : ''}}">{{selectedCategory || 'Select a category'}}</text>
     </view>
   </picker>
 
   <text class="label">Cuisine</text>
-  <picker mode="selector" range="{{['Filipino','Australian','French','American','Japanese','Asian','Other']}}" bindchange="handleCuisineChange">
+  <picker class="wide-picker" mode="selector" range="{{['Filipino','Australian','French','American','Japanese','Asian','Other']}}" bindchange="handleCuisineChange">
     <view class="input-container">
       <text class="picker-text {{selectedCuisine ? 'selected' : ''}}">{{selectedCuisine || 'Select a cuisine'}}</text>
     </view>
