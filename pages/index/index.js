@@ -72,7 +72,7 @@ Page({
         console.error("Failed to search recipes:", err);
         this.setData({ recipes: [], loading: false });
       }
-    }, 1500);
+    }, 1200);
   },
   onCategorySelect(e) {
     const category = e.currentTarget.dataset.category;

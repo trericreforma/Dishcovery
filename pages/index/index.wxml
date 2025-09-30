@@ -11,7 +11,7 @@
   <view class="search-box">
     <input
       class="search-input"
-      placeholder="Search for a recipe"
+      placeholder="Search for a recipe by name or ingredient"
       bindinput="onSearchInput"
       value="{{search}}"
     />
