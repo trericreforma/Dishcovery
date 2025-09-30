@@ -1,12 +1,23 @@
-<view class="modal-mask {{visible ? 'show' : ''}}" >
+<view class="modal-mask {{visible ? 'show' : ''}}">
   <view class="modal-container {{visible ? 'slide-up' : 'slide-down'}}">
     <image class="recipe-image" src="{{recipe.image_url || '../../../assets/no-image.png'}}" mode="aspectFill" />
 
     <view class="recipe-content">
       <view class="modal-curve"></view>
-      <text class="recipe-title">{{recipe.name}}</text>
+
+      <view class="recipe-title-row">
+        <text class="recipe-title">{{recipe.name}}</text>
+        <image
+          class="bookmark-icon"
+          src="{{isBookmarked ? '../../../assets/icons/bookmark_active.png' : '../../../assets/icons/bookmark.png'}}"
+          mode="aspectFit"
+          bindtap="toggleBookmark"
+        />
+      </view>
+
+
       <text class="recipe-author color-text-gray">By Jhon Woo</text>
-      <!-- Recipe details section removed -->
+
       <view class="recipe-details-spacer"></view>
       <view class="recipe-details-spacer"></view>
       <text class="recipe-desc-title">Description</text>

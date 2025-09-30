@@ -25,8 +25,8 @@ Component({
     goBookmark() {
       wx.navigateTo({ url: '/pages/bookmarks/bookmarks' })
     },
-    goProfile() {
-      wx.navigateTo({ url: '/pages/profile/profile' })
+    goMyRecipes() {
+      wx.navigateTo({ url: '/pages/my-recipes/my-recipes' })
     }
   }
 })

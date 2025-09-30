@@ -1,5 +1,5 @@
 <view class="container">
-<text class="label">Bookmarks</text>
+<text class="label">My Recipes</text>
 
 <view class="recipe-list">
   <block wx:for="{{recipes}}" wx:key="index">

@@ -20,7 +20,7 @@
   </view>
 
   <!-- Profile -->
-  <view class="menu-item" bindtap="goProfile">
-    <image src="../../assets/icons/profile.png" class="menu-icon" />
+  <view class="menu-item" bindtap="goMyRecipes">
+    <image src="../../assets/icons/my-recipes{{activePage === '/pages/my-recipes/my-recipes' ? '_active' : ''}}.png" class="menu-icon" />
   </view>
 </view>

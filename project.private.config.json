@@ -17,6 +17,6 @@
     "ignoreDevUnusedFiles": true,
     "bigPackageSizeSupport": false
   },
-  "libVersion": "2.25.3",
+  "libVersion": "3.10.2",
   "condition": {}
 }
