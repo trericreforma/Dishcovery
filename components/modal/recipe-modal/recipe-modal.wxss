@@ -82,7 +82,7 @@
   width: 100vw;
   height: 20px;
   position: absolute;
-  top: -23px;
+  top: -21px;
   right: 0;
   left: 0rpx;
   background: #fff;

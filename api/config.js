@@ -1,5 +1,5 @@
-//const BASE_URL = "https://a27e8fa9e0cc.ngrok-free.app"; 
-const BASE_URL = "http://localhost:3000"; 
+const BASE_URL = "https://6a0204055b7b.ngrok-free.app"; 
+// const BASE_URL = "http://localhost:3000"; 
 
 module.exports = {
   BASE_URL,

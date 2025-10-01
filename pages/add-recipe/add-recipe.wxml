@@ -1,161 +1,164 @@
-<view class="container">
+  <view class="container">
 
 
-  <text class="label">Dish Name</text>
-  <custom-input 
-    placeholder="What are you cooking?" 
-    bind:input="handleNameInput" 
-  />
+    <text class="label">Dish Name</text>
+    <custom-input 
+      placeholder="What are you cooking?" 
+      bind:input="handleNameInput" 
+    />
 
 
-  <text class="label">Description</text>
-  <custom-textarea 
-    placeholder="Tell about your dish" 
-    bind:input="handleDescriptionInput" 
-  />
+    <text class="label">Description</text>
+    <custom-textarea 
+      placeholder="Tell about your dish" 
+      bind:input="handleDescriptionInput" 
+    />
 
 
-  <text class="label">Category</text>
-  <picker class="wide-picker" mode="selector" range="{{['Chicken','Seafood','Beef','Pork','Vegetable','Other']}}" bindchange="handleCategoryChange">
-    <view class="input-container">
-      <text class="picker-text {{selectedCategory ? 'selected' : ''}}">{{selectedCategory || 'Select a category'}}</text>
-    </view>
-  </picker>
+    <text class="label">Category</text>
+    <picker class="wide-picker" mode="selector" range="{{['Chicken','Seafood','Beef','Pork','Vegetable','Other']}}" bindchange="handleCategoryChange">
+      <view class="input-container">
+        <text class="picker-text {{selectedCategory ? 'selected' : ''}}">{{selectedCategory || 'Select a category'}}</text>
+      </view>
+    </picker>
 
-  <text class="label">Cuisine</text>
-  <picker class="wide-picker" mode="selector" range="{{['Filipino','Australian','French','American','Japanese','Asian','Other']}}" bindchange="handleCuisineChange">
-    <view class="input-container">
-      <text class="picker-text {{selectedCuisine ? 'selected' : ''}}">{{selectedCuisine || 'Select a cuisine'}}</text>
-    </view>
-  </picker>
+    <text class="label">Cuisine</text>
+    <picker class="wide-picker" mode="selector" range="{{['Filipino','Australian','French','American','Japanese','Asian','Other']}}" bindchange="handleCuisineChange">
+      <view class="input-container">
+        <text class="picker-text {{selectedCuisine ? 'selected' : ''}}">{{selectedCuisine || 'Select a cuisine'}}</text>
+      </view>
+    </picker>
 
-  <!-- Preparation Time hidden
-  <text class="label">Preparation Time</text>
-  <custom-slider
-    label="Minutes"
-    min="0"
-    max="100"
-    step="5"
-    value="50"
-    bind:change="handleSliderChange"
-  />
-  -->
+    <!-- Preparation Time hidden
+    <text class="label">Preparation Time</text>
+    <custom-slider
+      label="Minutes"
+      min="0"
+      max="100"
+      step="5"
+      value="50"
+      bind:change="handleSliderChange"
+    />
+    -->
 
-  <!-- Calorie Content hidden
-  <text class="label">Calorie Content</text>
-  <custom-slider
-    label="kCal"
-    min="0"
-    max="500"
-    step="5"
-    value="50"
-    bind:change="handleSliderChange"
-  />
-  -->
+    <!-- Calorie Content hidden
+    <text class="label">Calorie Content</text>
+    <custom-slider
+      label="kCal"
+      min="0"
+      max="500"
+      step="5"
+      value="50"
+      bind:change="handleSliderChange"
+    />
+    -->
 
-  <!-- Difficulty hidden
-  <text class="label">Difficulty</text>
-  <difficulty 
-    selected="medium"
-    bind:change="handleDifficultyChange" 
-  />
-  -->
+    <!-- Difficulty hidden
+    <text class="label">Difficulty</text>
+    <difficulty 
+      selected="medium"
+      bind:change="handleDifficultyChange" 
+    />
+    -->
 
-  <text class="label">Tags</text>
-  <custom-input 
-    placeholder="e.g. vegan, spicy, quick" 
-    bind:input="handleTagsInput" 
-  />
+    <text class="label">Tags</text>
+    <custom-input 
+      placeholder="e.g. vegan, spicy, quick" 
+      bind:input="handleTagsInput" 
+    />
 
-  <text class="label">Ingredients</text>
+    <text class="label">Ingredients</text>
 
-  <block wx:if="{{selectedIngredients.length > 0}}">
-    <view class="selected-ingredients">
-      <block wx:for="{{selectedIngredients}}" wx:key="index">
-        <view class="item-container">
-          <view class="selected-item">
-            <view class="info">
-              <ingredient-image name="{{item.name}}" />
-              <text class="item-name">{{item.name}} ({{item.unit}})</text>
+    <block wx:if="{{selectedIngredients.length > 0}}">
+      <view class="selected-ingredients">
+        <block wx:for="{{selectedIngredients}}" wx:key="index">
+          <view class="item-container">
+            <view class="selected-item">
+              <view class="info">
+                <ingredient-image name="{{item.name}}" />
+                <text class="item-name">{{item.name}} ({{item.unit}})</text>
+              </view>
+
+              <view class="quantity-controls">
+                <button class="qty-btn" bindtap="decreaseQty" data-index="{{index}}">-</button>
+                <input 
+                  class="qty-input"
+                  type="number"
+                  value="{{item.quantity}}"
+                  bindinput="handleQuantityInput"
+                  data-index="{{index}}"
+                />
+                <button class="qty-btn" bindtap="increaseQty" data-index="{{index}}">+</button>
+              </view>
             </view>
-
-            <view class="quantity-controls">
-              <button class="qty-btn" bindtap="decreaseQty" data-index="{{index}}">-</button>
-              <input 
-                class="qty-input"
-                type="number"
-                value="{{item.quantity}}"
-                bindinput="handleQuantityInput"
-                data-index="{{index}}"
-              />
-              <button class="qty-btn" bindtap="increaseQty" data-index="{{index}}">+</button>
-            </view>
+            <button
+              class="remove-btn"
+              data-index="{{index}}"
+              bindtap="removeIngredient"
+            >✕</button>
           </view>
-          <button
-            class="remove-btn"
-            data-index="{{index}}"
-            bindtap="removeIngredient"
-          >✕</button>
-        </view>
-      </block>
-    </view>
-  </block>
+        </block>
+      </view>
+    </block>
 
-  <custom-button 
-    label="Add Ingredient" 
-    type="primary" 
-    bind:tap="openModal" 
-  />
+    <custom-button 
+      label="Add Ingredient" 
+      type="primary" 
+      bind:tap="openModal" 
+    />
 
-  <text class="label">Procedure</text>
+    <text class="label">Procedure</text>
 
-  <block wx:for="{{steps}}" wx:key="index">
-    <view class="step-row">
-      <custom-textarea
-        class="step-textarea"
-        placeholder="Write step {{index + 1}}"
-        value="{{item.text}}"
-        bind:input="updateStep"
-        data-index="{{index}}"
+    <block wx:for="{{steps}}" wx:key="index">
+      <view class="step-row">
+        <custom-textarea
+          class="step-textarea"
+          placeholder="Write step {{index + 1}}"
+          value="{{item.text}}"
+          bind:input="updateStep"
+          data-index="{{index}}"
+        />
+        <button
+          class="remove-btn"
+          data-index="{{index}}"
+          bindtap="removeStep"
+        >✕</button>
+      </view>
+    </block>
+
+
+
+    <custom-button 
+      label="Add a step" 
+      type="primary" 
+      catchtap="addStep" 
+    />
+
+    <text class="label">Photo</text>
+    <view class="upload-container" bindtap="handleChooseImage">
+      <image 
+        class="upload-image" 
+        src="{{tempImageUrl || '../../assets/upload.png'}}" 
+        mode="{{tempImageUrl ? 'aspectFill' : 'aspectFit'}}"
       />
-      <button
-        class="remove-btn"
-        data-index="{{index}}"
-        bindtap="removeStep"
-      >✕</button>
+      <text class="upload-text" wx:if="{{!tempImageUrl}}">Upload Photo</text>
     </view>
-  </block>
+
+    <ingredients-modal 
+      show="{{showIngredientModal}}" 
+      bind:close="closeIngredientModal" 
+      bind:add="handleAddIngredient" 
+    />
 
 
-
-  <custom-button 
-    label="Add a step" 
-    type="primary" 
-    catchtap="addStep" 
-  />
-
-  <text class="label">Photo</text>
-  <!--<view class="upload-container" bindtap="handleChooseImage">-->
-  <view class="upload-container">
-    <image class="upload-image" src="{{tempImageUrl || '../../assets/upload.png'}}" mode="{{tempImageUrl ? 'aspectFill' : 'aspectFit'}}"/>
-    <text class="upload-text" wx:if="{{!tempImageUrl}}">Upload Photo</text>
+  <view class="save-container">
+    <custom-button 
+      label="SAVE RECIPE" 
+      type="primary" 
+      bind:tap="handleSubmitRecipe" 
+    />
+  </view>
+    
   </view>
 
-  <ingredients-modal 
-    show="{{showIngredientModal}}" 
-    bind:close="closeIngredientModal" 
-    bind:add="handleAddIngredient" 
-  />
-
-
-<view class="save-container">
-  <custom-button 
-    label="SAVE RECIPE" 
-    type="primary" 
-    bind:tap="handleSubmitRecipe" 
-  />
-</view>
-  
-</view>
-
-<menu />
+  <menu />

@@ -1,3 +1,5 @@
+
+
 Page({
   data: {
     showIngredientModal: false,
@@ -135,9 +137,12 @@ Page({
 
         // First, upload to your server
         wx.uploadFile({
-          url: 'http://localhost:3000/upload',
+          url: 'https://6a0204055b7b.ngrok-free.app/upload',
           filePath: tempFilePath,
           name: 'image',
+          header: {
+            "Content-Type": "multipart/form-data"
+          },
           success: (uploadRes) => {
             const data = JSON.parse(uploadRes.data);
             if (uploadRes.statusCode === 200) {
@@ -205,7 +210,7 @@ Page({
     });
 
     wx.request({
-      url: 'http://localhost:3000/recipes',
+      url: 'https://6a0204055b7b.ngrok-free.app/recipes',
       method: 'POST',
       data: recipe,
       header: {
