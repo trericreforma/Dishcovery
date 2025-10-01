@@ -1,4 +1,4 @@
-
+const { BASE_URL } = require("../../api/config");
 
 Page({
   data: {
@@ -137,7 +137,7 @@ Page({
 
         // First, upload to your server
         wx.uploadFile({
-          url: 'https://6a0204055b7b.ngrok-free.app/upload',
+          url: `${BASE_URL}/upload`,
           filePath: tempFilePath,
           name: 'image',
           header: {
@@ -148,7 +148,7 @@ Page({
             if (uploadRes.statusCode === 200) {
               this.setData({
                 tempImageUrl: tempFilePath,
-                imageUrl: data.url // Store the URL returned from server
+                imageUrl: `${BASE_URL}${data.url}` // Store the URL returned from server
               });
               wx.showToast({
                 title: 'Image uploaded successfully',
