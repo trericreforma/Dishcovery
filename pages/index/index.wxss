@@ -200,14 +200,14 @@
 
 .category-list{
   display: inline-block;
-  width: 709px;
+  width: 2100px;
 }
 .category-card {
   background-color: #fff;
   box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.05);
   border-radius: 10px;
-  width: 57px;
-  height: 57px;
+  width: 96px;
+  height: 100px;
   margin: 0 10px;
   padding: 10px;
   text-align: center;
@@ -215,8 +215,8 @@
 }
 
 .category-icon{
-  width: 32px;
-  height: 32px;
+  width: 100px;
+  height: 67px;
   display: block;
   margin: auto;
   margin-bottom: 7px;

@@ -10,29 +10,61 @@ Page({
         img: "../../assets/icons/all.png"
       },
       {
-        name: "Breakfast",
-        img: "../../assets/icons/breakfast.png"
+        name: "Beef",
+        img: "https://www.themealdb.com/images/category/beef.png"
       },
       {
-        name: "Lunch",
-        img: "../../assets/icons/lunch.png"
-      },
-      {
-        name: "Dinner",
-        img: "../../assets/icons/dinner.png"
-      },
-      {
-        name: "Snack",
-        img: "../../assets/icons/snack.png"
+        name: "Chicken",
+        img: "https://www.themealdb.com/images/category/chicken.png"
       },
       {
         name: "Dessert",
-        img: "../../assets/icons/dessert.png"
+        img: "https://www.themealdb.com/images/category/dessert.png"
       },
       {
-        name: "Drinks",
-        img: "../../assets/icons/drinks.png"
+        name: "Lamb",
+        img: "https://www.themealdb.com/images/category/lamb.png"
       },
+      {
+        name: "Miscellaneous",
+        img: "https://www.themealdb.com/images/category/miscellaneous.png"
+      },
+      {
+        name: "Pasta",
+        img: "https://www.themealdb.com/images/category/pasta.png"
+      },
+      {
+        name: "Pork",
+        img: "https://www.themealdb.com/images/category/pork.png"
+      },
+      {
+        name: "Seafood",
+        img: "https://www.themealdb.com/images/category/seafood.png"
+      },
+      {
+        name: "Side",
+        img: "https://www.themealdb.com/images/category/side.png"
+      },
+      {
+        name: "Starter",
+        img: "https://www.themealdb.com/images/category/starter.png"
+      },
+      {
+        name: "Vegan",
+        img: "https://www.themealdb.com/images/category/vegan.png"
+      },
+      {
+        name: "Vegetarian",
+        img: "https://www.themealdb.com/images/category/vegetarian.png"
+      },
+      {
+        name: "Breakfast",
+        img: "https://www.themealdb.com/images/category/breakfast.png"
+      },
+      {
+        name: "Goat",
+        img: "https://www.themealdb.com/images/category/goat.png"
+      }
     ],
     recipes: [],    
     showModal: false,
