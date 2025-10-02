@@ -1,9 +1,16 @@
+<view class="lang-container">
+  <view class="lang-toggle" bindtap="onToggleLang">
+    <view class="lang-option {{currentLang === 'zh' ? 'active' : ''}}">中文</view>
+    <view class="lang-option {{currentLang === 'en' ? 'active' : ''}}">EN</view>
+    <view class="lang-slider {{currentLang}}"></view>
+  </view>
+</view>
 
 <view class="container color-text">
   <view class="title-container">
     <view class="title-text">
-      <text class="title-greeting">Hello, user</text>
-      <text class="title-greeting2">What would you like to cook today?</text>
+      <text class="title-greeting">{{titleGreeting}}, User</text>
+      <text class="title-greeting2">{{titleGreeting2}}</text>
     </view>
     <image class='user-avatar' src="https://randomuser.me/api/portraits/women/43.jpg"/>
   </view>
@@ -11,7 +18,7 @@
   <view class="search-box">
     <input
       class="search-input"
-      placeholder="Search for a recipe by name or ingredient"
+      placeholder="{{searchPlaceholder}}"
       bindinput="onSearchInput"
       value="{{search}}"
     />

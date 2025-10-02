@@ -1,4 +1,4 @@
-  // ...existing code...
+const app = getApp()
 const recipeService = require("../../api/services/recipe");
 Page({
   data: {
@@ -68,9 +68,32 @@ Page({
     ],
     recipes: [],    
     showModal: false,
-    selectedRecipe: {}
+    selectedRecipe: {},
+    currentLang: 'en',
+    titleGreeting: '',
+    titleGreeting2: '',
+    searchPlaceholder: '',
   },
   onLoad() {
+    const i18n = getApp().globalData.i18n
+    this.i18n = i18n
+
+    this.setData({
+      titleGreeting: i18n.t('home.greeting1'),
+      titleGreeting2: i18n.t('home.greeting2'),
+      searchPlaceholder: i18n.t('home.searchPlaceholder'),
+      currentLang: i18n.getLang()
+    })
+
+    this._unsubscribeI18n = i18n.onChange((lang) => {
+      this.setData({
+        titleGreeting: i18n.t('home.greeting1'),
+        titleGreeting2: i18n.t('home.greeting2'),
+        searchPlaceholder: i18n.t('home.searchPlaceholder'),
+        currentLang: lang
+      })
+    })
+
     this.fetchRecipes();
   },
   async fetchRecipes() {
@@ -139,5 +162,13 @@ Page({
   },
   onModalClose() {
     this.setData({ showModal: false })
-  }
+  },
+  onToggleLang() {
+    const newLang = this.data.currentLang === 'en' ? 'zh' : 'en'
+    this.i18n.setLang(newLang)               // will call listeners automatically
+    app.globalData.currentLang = newLang     // keep global state in sync
+  },
+  onUnload() {
+    if (typeof this._unsubscribeI18n === 'function') this._unsubscribeI18n()
+  },
 })

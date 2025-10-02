@@ -237,7 +237,54 @@
   gap: 12rpx; /* spacing between cards */
   justify-content: space-between;
 }
+.lang-toggle {
+  position: relative;
+  width: 180rpx;
+  height: 70rpx;
+  background: #eee;
+  border-radius: 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #666;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.2);
+}
 
-.image-card {
-  
+.lang-option {
+  width: 50%;
+  text-align: center;
+  z-index: 2;
+  transition: color 0.3s;
+}
+
+.lang-option.active {
+  color: #fff;
+}
+
+.lang-slider {
+  position: absolute;
+  top: 4rpx;
+  width: 50%;
+  height: 62rpx;
+  background: #009688;
+  border-radius: 40rpx;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.lang-slider.en {
+  left: 50%;
+}
+
+.lang-slider.zh {
+  left: 0;
+}
+
+.lang-container{
+  display: block;
+  box-sizing: border-box;
+  padding-left: 50rpx;
 }
